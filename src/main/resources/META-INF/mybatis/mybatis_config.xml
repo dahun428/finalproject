@@ -23,9 +23,12 @@
 		<typeAlias type="com.sample.web.view.PerformanceSchedule" alias="PerformanceSchedule"/>
 		<typeAlias type="com.sample.web.view.Notice" alias="Notice"/>
 		<typeAlias type="com.sample.web.view.HallSeat" alias="HallSeat"/>
+		<typeAlias type="com.sample.dto.PerformanceDetailDto" alias="PerformanceDetailDto"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="META-INF/mybatis/mappers/users.xml"/>
 		<mapper resource="META-INF/mybatis/mappers/performances.xml"/>
+		<mapper resource="META-INF/mybatis/mappers/notices.xml"/>
+		<mapper resource="META-INF/mybatis/mappers/mates.xml"/>
 	</mappers>
 </configuration>

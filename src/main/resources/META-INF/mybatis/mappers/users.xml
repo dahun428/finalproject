@@ -3,4 +3,54 @@
 
 <mapper namespace="com.sample.dao.UserDao">
 
+	<select id="getUserById" parameterType="string" resultType="User">
+		select
+			a.id        	  as id,
+			a.password  	  as password,
+			a.nickname      as nickname,
+			a.birthday      as birthday,
+			a.gender        as gender,
+			a.email     	  as email,
+			a.tel       	  as tel
+		FROM user_main a, user_address b, user_sub c
+		WHERE a.id = b.id
+		AND b.id = c.id
+		AND a.id = #{value}
+	</select>
+
+	
+	<insert id="insertUser" parameterType="User">
+		insert into user_main
+		(id, password, nickname, birthday, gender, email, tel)
+		values
+		(#{id}, #{password}, #{nickname}, #{birthday}, #{gender}, #{email}, #{tel})
+	</insert>
+	<insert id="insertUserSub" parameterType="User">
+		insert into user_sub
+		(id)
+		values
+		(#{id})
+	</insert>
+	<insert id="insertUserAddr" parameterType="User">
+		insert into user_address
+		(id, postalCode, sido, sigungu, addr)
+		values
+		(#{id},#{postalCode}, #{sido}, #{sigungu}, #{addr})
+	</insert>
+	
+	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
